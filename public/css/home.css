@@ -12,8 +12,8 @@ body{
     z-index: 2;
 }
 .navbar a{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 .container{
     box-sizing: border-box;
