@@ -81,12 +81,14 @@ body{
 }
 .emailCol,.email, .email a{
     margin-right: 3px;
-    text-transform: none;
     text-decoration: none;
-    color: black;
+
 }
-.email:hover{
-    color:darkblue;
+.email, .resume{
+    color: rgb(95, 176, 241);
+}
+.email:checked{
+    color: darkred;
 }
 .job-title{
     color: black;
