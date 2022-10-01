@@ -11,6 +11,10 @@ const authentication=require("../middleware/userAuthentication")
 const fileUploader=require("../middleware/fileUploadMiddleware")
 const moment=require("moment")
 
+router.get("/",(req,res)=>{
+    const error=req.query.error
+    res.render("login",{error})
+})
 
 router.get("/signup", (req,res)=>{
     
