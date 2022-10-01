@@ -108,6 +108,10 @@ body{
     padding: 5px ;
    
 }
+.navbar a{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
 /* -------media queries for signup page */
 @media screen and ( max-width:500px){
     .container{

@@ -206,7 +206,7 @@ router.post("/createNewJob",authentication.employerAuthentication,async(req,res)
         const result=await job.save()
         res.redirect("/home?msg=job posted successfully")
     }catch(error){
-        res.redirect("/createNewJob?error=Complete your profile first")
+        res.redirect("/profile?error=Complete your profile first")
     }
     
 })
