@@ -1,0 +1,23 @@
+.container{
+    /* border: 1px solid red; */
+    height: calc(100vh-200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    font-family: sans-serif;
+    border: 1px solid green;
+    background-color: rgb(121, 245, 121);
+    color: green;
+    text-align: center;
+    line-height: 20px;
+    width: 400px;
+    padding: 15px;
+    border-radius: 5px;
+    position: fixed;
+    top: 100px;
+}
+.backward{
+    z-index: -1;
+}

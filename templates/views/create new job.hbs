@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/employerNavbar.css">
+    <link rel="stylesheet" href="css/create new job.css">
+    <title>Create new Job</title>
+
+    <script>
+        const validate=()=>{
+            let flag=true;
+            if(document.getElementById("jobTitle").value==""){
+                document.getElementById("titleError").innerHTML="PLease enter job title"
+                flag=false
+            }else{
+                document.getElementById("titleError").innerHTML=""   
+            }
+            if(document.getElementById("location").value==""){
+                document.getElementById("locationError").innerHTML="PLease enter job location"
+                flag=false
+            }else{
+                document.getElementById("locationError").innerHTML=""   
+            }
+            if(document.getElementById("salary").value==""){
+                document.getElementById("salaryError").innerHTML="PLease enter salary"
+                flag=false
+            }else{
+                document.getElementById("salaryError").innerHTML=""   
+            }
+            if(document.getElementById("positions").value==""){
+                document.getElementById("positionError").innerHTML="PLease enter no of positions"
+                flag=false
+            }else{
+                document.getElementById("positionError").innerHTML=""   
+            }
+            if(document.getElementById("description").value==""){
+                document.getElementById("descriptionError").innerHTML="PLease enter description"
+                flag=false
+            }else{
+                document.getElementById("descriptionError").innerHTML=""   
+            }
+            return flag
+        }
+    </script>
+
+</head>
+
+<body>
+    
+    {{#ifCond role "Employer"}}
+         {{>employerNavbar}}
+    {{/ifCond}}
+    <div class="container">
+        <div class="card">
+            <div class="form">
+                <form action="/createNewJob" method="post" onsubmit="return validate()">
+                <span class="error" id="titleError"></span>
+                <input type="text" name="jobTitle" id="jobTitle" placeholder="Job title">
+                <br>
+                <span class="error" id="locationError"></span>
+                <input type="text"id="location" name="location" placeholder="location">
+                <br>
+                <span class="error" id="positionError"></span>
+                <input type="text" id="positions" name="positions" placeholder="No of positions">
+                <br>
+                <span class="error" id="salaryError"></span>
+                <input type="text" id="salary" name="salary" placeholder="Salary">
+                <br>
+                <span class="error" id="descriptionError"></span>
+                <textarea class="textbox" name="description" id="description" placeholder="Description" cols="30" rows="10" maxlength="500"></textarea>
+                <div>
+                    <input id="btn" type="submit" value="Post">
+                </div>
+            </form>
+
+            {{#if error}}
+                <div class="msg">{{error}}</div>
+            {{/if}}
+            </div>
+        </div>
+   </div>
+
+
+
+
+
+    <script src="/scripts/create new job.js"></script>
+</body>
+</html>

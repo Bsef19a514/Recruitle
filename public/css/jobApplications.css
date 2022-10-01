@@ -1,0 +1,121 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    height: 100%;
+    overflow: hidden;
+    text-transform:capitalize;
+}
+.navbar{
+    z-index: 2;
+}
+.navbar a{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.container{
+    box-sizing: border-box;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    padding-top: 80px;
+    height: 100vh;
+    padding-bottom: 50px;
+    
+}
+
+.hidden{
+    display: none;
+}
+
+.header{
+    /* border-bottom: 1px solid rgb(180, 177, 177); */
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgb(124, 123, 123);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10px;
+}
+.body{
+    border-top: 1px solid rgb(124, 123, 123);
+    border-bottom: 1px solid rgb(124, 123, 123);
+}
+.heading{
+    border-top: 1px solid rgb(124, 123, 123);
+    border-bottom: 1px solid rgb(124, 123, 123);
+    padding: 5px 10px;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 3fr 1fr;
+    place-items: stretch;
+    background-color: skyblue;
+}
+.data{
+    border-bottom: 1px solid rgb(124, 123, 123);
+    border-bottom: 1px solid rgb(124, 123, 123);
+    padding: 5px 10px;
+    display: grid;
+    grid-template-columns: 0.5fr 1fr 3fr 1fr;
+    place-items: stretch;
+}
+.NoCol, .applicantCol, .emailCol, .resumeCol{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    align-self: center;
+    justify-self: center;
+    
+}
+
+.No, .applicant, .email, .resume{
+    align-self: center;
+    justify-self: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+.emailCol,.email, .email a{
+    margin-right: 3px;
+    text-transform: none;
+    text-decoration: none;
+}
+.job-title{
+    color: black;
+    font-weight:bold;
+    /* border-bottom: 2px solid black; */
+    text-align: left;
+    margin-left: 5px;
+    font-size: 30px;
+}
+
+.location{
+    text-align: left;
+    margin-left: 5px;
+    margin-top: 5px;
+    color: rgb(124, 123, 123);
+
+}
+.positions{
+    text-align: left;
+    margin-left: 7px;
+    margin-top: 5px;
+    color: rgb(124, 123, 123);
+
+}
+.empty{
+    color: rgb(124, 123, 123);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+/* -------media queries for signup page */
+@media screen and ( max-width:500px){
+    .container{
+        align-content: flex-start;
+        align-items:flex-start;
+    }
+    
+}
+

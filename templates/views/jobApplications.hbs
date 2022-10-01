@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/homeNavbar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5966116e87.js" crossorigin="anonymous"></script>
+    <title>Job Applications</title>
+    <link rel="stylesheet" href="/css/jobApplications.css">
+</head>
+
+<body>
+     {{>employerNavbar}}
+    <div class="container">
+          <div class="header">
+            <p class="location"><i class="fa-solid fa-location-dot"></i> {{this.location}}</p>
+            <p class="job-title">{{this.jobTitle}}</p>
+            <p class="positions">Positions: {{this.positions}}</p>
+          </div>
+          <div class="body">
+               <div class="heading">
+                    <div class="NoCol">
+                         <p>No</p>
+                    </div>
+                    <div class="applicantCol">
+                         <p>Applicant</p>
+                    </div>
+                    <div class="emailCol">
+                         <p>Email</p>
+                    </div>
+                    <div class="resumeCol">
+                         <p>Resume</p>
+                    </div>
+               </div>
+               
+               {{#each this.applicants}}
+                    <div class="data">
+                         <div class="No">
+                              <p>{{@index}}</p>
+                         </div>
+                         <div class="applicant">
+                              <p>{{this.applicantName}}</p>
+                         </div>
+                         <div class="email">
+                              <a href="mailto:{{this.applicantEmail}}">{{this.applicantEmail}}</a>
+                         </div>
+                         <div class="resume">
+                              <a href="{{this.applicantResume}}">Download Resume</a>
+                         </div>
+                    </div>
+                    {{else}}
+                    <p class="empty">No applications found.</p>
+               {{/each}}
+          </div>
+   </div>
+
+    <script src="/scripts/create new job.js"></script>
+</body>
+</html>

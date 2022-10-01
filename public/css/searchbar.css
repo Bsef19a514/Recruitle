@@ -1,0 +1,76 @@
+.navbar{
+    z-index: 2;
+}
+.searchbar{
+    width: fit-content;
+    height: 40px;
+    box-shadow: 5px 10px 20px grey;
+    margin-top: 0%;
+    margin-bottom: 5%;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-sizing: content-box;
+    border: 1px solid grey;
+    justify-content: space-between;
+}
+.searchbar form{
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items:stretch;
+}
+.searchbar input[type=text]{
+    flex-grow: 3;
+    border: none;
+    padding-left: 5px;
+    outline: none;
+    height: 100%;
+}
+.inputs{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-flow: nowrap;
+}
+.searchbar button{
+    color: white;
+    background-color: black;
+    outline: none;
+    /* box-sizing:content-box; */
+    text-align: center;
+    font-size: 17px;
+    cursor: pointer;
+    position: relative;
+    margin-right: 5px;
+    height: 100%;
+    width: 100%;
+}
+
+.searchbar button:active{
+    transform: scale(1.025);
+}
+
+@media screen and ( max-width:500px){
+    .searchbar{
+        width: 90vw;
+        justify-content: space-between;
+    }
+    .inputs{
+        /* border: 1px solid red; */
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        flex-flow: nowrap;
+    }
+    .search{
+        width: 100%;
+    }
+    .searchbar button{
+        width: 100%;
+    }
+}

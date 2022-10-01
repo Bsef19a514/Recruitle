@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/homeNavbar.css">
+    <link rel="stylesheet" href="/css/home.css">
+    {{!-- <link rel="preconnect" href="https://fonts.googleapis.com"> --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5966116e87.js" crossorigin="anonymous"></script>
+    <title>Home</title>
+</head>
+
+<body>
+    
+    {{#ifCond user.role "Applicant"}}
+        {{>applicantNavbar}}
+       
+    {{else}}
+         {{>employerNavbar}}
+    {{/ifCond}}
+    
+
+    <div class="container">
+        
+    {{#if msg}}
+        <div class="msg">
+            <span>{{msg}} <i id="x" class="fa-solid fa-xmark"></i></span>
+        </div>   
+    {{/if}}
+    
+    {{#ifCond user.role "Applicant"}}
+        {{#each result}}
+            <div class="card">
+                <div class="header">
+                    <p class="employer"><i class="fa-solid fa-user"></i><span class="name">{{this.employerName}}</span></p>   
+                    <p class="company">{{this.company}}</p>
+                </div>
+                <div class="body">
+                    <p class="job-title">{{this.jobTitle}}</p>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> {{this.location}}</p>
+                    <p class="positions">Positions: {{this.positions}}</p>
+                    <p class="salary">Salary: {{this.salary}}</p>
+                    <p class="description">{{this.description}}</p>
+                    <a class="button" href="/apply/{{this._id}}">Quick Apply</a>
+                </div>
+                <div class="footer">
+                    <span class="date">{{this.createdAt}}</span>
+                </div>
+            </div>
+        {{/each}}
+       
+    {{else}}
+         {{#each result}}
+            <div class="card">
+                <div class="header">
+                    <p class="employer"><i class="fa-solid fa-user"></i><span class="name">{{this.employerName}}</span></p>   
+                    <p class="company">{{this.company}}</p>
+                </div>
+                <div class="body">
+                    <p class="job-title">{{this.jobTitle}}</p>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> {{this.location}}</p>
+                    <p class="positions">Positions: {{this.positions}}</p>
+                    <p class="salary">Salary: {{this.salary}}</p>
+                    <p class="description">{{this.description}}</p>
+                </div>
+                <div class="footer">
+                    <span class="date">{{this.createdAt}}</span>
+                </div>
+            </div>
+        {{/each}}
+    {{/ifCond}}
+   </div>
+
+   <script>
+        const x= document.querySelector("#x")
+        const msg=document.querySelector(".msg")
+        x.onclick=()=>{
+            msg.classList.toggle("hidden")
+        }
+    </script>
+
+    <script src="/scripts/create new job.js"></script>
+</body>
+</html>

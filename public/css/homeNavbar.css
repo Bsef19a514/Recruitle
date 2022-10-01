@@ -1,0 +1,116 @@
+*{
+    padding: 0%;
+    margin: 0%;
+}
+
+.navbar{
+    background-color: black;
+    color: white;
+    height: 70px;
+    font-family: sans-serif;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:stretch;
+    width: 100%;
+    position: fixed;
+    top: 0%;
+}
+
+.navbar-left{
+    flex-basis: 100px;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items:stretch;
+   
+}
+.navbar-center{
+    flex-basis: 300px;
+    /* border: 1px solid green; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items:stretch;
+}
+
+.navbar-right{
+    flex-basis: 200px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+}
+.img{
+    background: url(../static/me.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-clip: padding-box;
+    flex-basis: 100px;
+}
+.navbar a{
+    flex-grow: 1;
+    text-decoration: none;
+    padding: 0%;
+    margin: 0%;
+    color: white;
+    display: flex;
+    align-items:center;
+    justify-content: center;
+}
+
+.navbar a:hover{
+    background-color: gray;
+}
+
+.hamburger{
+    display: none;
+}
+/* --------------------------------------------------- */
+@media screen and ( max-width:500px){
+    .hamburger{
+        display: initial;
+        font-size: 30px;
+        padding-top: 10px;
+        padding-right: 10px;
+    }
+    .navbar{
+        display: block;
+        height:70px;
+        transition:height .1s linear;
+        
+    }
+    .navbar-left{
+        justify-content: space-between;
+        height: 65px;
+    }
+    .navbar-center{
+        display: none;
+    }
+    .navbar-right{
+        display: none;
+    }
+}
+/* --------------------------------------------------------------- */
+
+.navbarOnclick{
+   transition:height .1s linear;
+    height:fit-content;
+}
+
+.navbar-centerOnclick{
+    display: block;
+}
+
+.navbar-rightOnclick{
+    display: block;
+}
+.itemsOnclick{
+    /* border: 1px solid red; */
+    height: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+}

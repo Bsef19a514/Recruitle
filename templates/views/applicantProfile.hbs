@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/5966116e87.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/employerNavbar.css">
+    <link rel="stylesheet" href="/css/applicantProfile.css">
+
+    <title>profile</title>
+
+    <script>
+        const validate=()=>{
+            let flag=true;
+            if(document.getElementById("fullname").value==""){
+                document.getElementById("nameError").innerHTML="Plz enter your name"
+                flag=false
+            }else{
+                document.getElementById("nameError").innerHTML=""   
+            }
+             if(!fileUpload.classList.contains("hidden")){
+                if(document.getElementById("file").value==""){
+                    document.getElementById("fileError").innerHTML="Plz select resume (.pdf)"
+                    flag=false
+                }else{
+                    document.getElementById("fileError").innerHTML=""   
+                }
+            }
+            
+            if(document.getElementById("email").value==""){
+                document.getElementById("emailError").innerHTML="Plz enter your email"
+                flag=false
+            }else if (document.getElementById("email").value != "") {
+			    var g = document.getElementById("email").value;
+			    var at = g.indexOf("@");
+			    dot = g.lastIndexOf(".");
+			    if (at <=0 || dot <= 0 || dot <= at + 1 || dot == g.length - 1) {
+				    document.getElementById("emailError").innerHTML = "*Invalid email address";
+				    flag = false;
+	    		}
+		    	else {
+			    	document.getElementById("emailError").innerHTML= "";
+			    }
+            }
+            return flag
+        }
+    </script>
+</head>
+
+<body>
+    
+    {{>applicantNavbar}}
+    <div class="container">
+        <div class="card">
+            <div class="form">
+                
+                <form action="/userProfile" method="post" enctype="multipart/form-data" onsubmit="return validate()">
+                <label for="">Name:</label><span class="error" id="nameError"></span>
+                <br>
+                <input class="input" name="fullname" type="text" id="fullname" placeholder="Full name *"  value="{{fullname}}">
+                <br>
+                <label for="">Email:</label><span class="error" id="emailError"></span>
+                <br>
+                <input class="input" name="email" type="text" id="email" placeholder="Email *" value="{{email}}">
+                <br>
+                <label for="">Resume:</label><span class="error" id="fileError"></span>
+                <div class="resume">
+                    <a class="show" href="{{resumePath}}">{{resumeName}}</a><i id="x" class="fa-solid fa-xmark"></i>
+                </div>
+                
+                <div class="fileUpload">
+                    <br>
+                    <input  id="file" name="resume" type="file" accept=".pdf">
+                    <br>
+                </div>
+               
+                <div>
+                    <a class="button" href="/profile/changePassword">Change Password</a>
+                    <input class="input" id="btn" type="submit" value="Save">
+                </div>
+            </form>
+            <div class="footer">
+                {{#if error}}
+                <div class="msg">{{error}}</div>
+                {{/if}}
+            </div>
+            </div>
+        </div>
+   </div>
+
+
+    <script>
+        
+
+        const x= document.querySelector("#x")
+        const resume=document.querySelector(".resume")
+        const fileUpload=document.querySelector(".fileUpload")
+        {{#if resumePath}}
+            fileUpload.classList.toggle("hidden")
+            {{else}}
+            resume.classList.toggle("hidden")
+        {{/if}}
+        x.onclick=()=>{
+            resume.classList.toggle("hidden")
+            fileUpload.classList.toggle("hidden")
+        }
+    </script>
+    <script src="/scripts/index.js"></script>
+</body>
+</html>

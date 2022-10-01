@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="css/navbarStyle.css">
+    <link rel="stylesheet" href="css/signupLoginStyle.css">
+    <title>Signup</title>
+    <script>
+        const validate=()=>{
+            let flag=true;
+            if(document.getElementById("FullName").value==""){
+               
+                document.getElementById("fullname").innerHTML="*Plz enter name."
+                flag=false
+               
+            }else{
+                document.getElementById("fullname").innerHTML=""
+            }
+            
+            if(document.getElementById("Email").value==""){
+                
+                document.getElementById("email").innerHTML="*Plz enter email."
+                flag=false
+            }
+            else if (document.getElementById("Email").value != "") {
+			    var g = document.getElementById("Email").value;
+			    var at = g.indexOf("@");
+			    dot = g.lastIndexOf(".");
+			    if (at <=0 || dot <= 0 || dot <= at + 1 || dot == g.length - 1) {
+				    document.getElementById("email").innerHTML = "*Invalid email address";
+				    flag = false;
+	    		}
+		    	else {
+			    	document.getElementById("email").innerHTML = "";
+			    }
+            }
+            const password=document.getElementById("Password").value;
+            if(password==""){
+               
+                document.getElementById("password").innerHTML="*Plz enter password."
+                flag=false
+            }else{
+                if(document.getElementById("Password").value!=document.getElementById("CPassword").value){
+                    document.getElementById("password").innerHTML="*Passwords do not match."
+                    flag=false
+                }else{
+                    const strength=CheckPasswordStrength(password)
+                    if(strength>=5){
+                        document.getElementById("password").innerHTML=""
+                    }else{
+                        document.getElementById("password").innerHTML="Enter a strong password."
+                        flag=false;
+                    }
+                }
+            }
+            
+            return flag
+        }
+
+        function CheckPasswordStrength(password) {
+            //Regular Expressions
+            var regex = new Array();
+            regex.push("[A-Z]"); //For Uppercase Alphabet
+            regex.push("[a-z]"); //For Lowercase Alphabet
+            regex.push("[0-9]"); //For Numeric Digits
+            regex.push("[$@$!%*#?&]"); //For Special Characters
+
+            var passed = 0;
+
+            //Validation for each Regular Expression
+            for (var i = 0; i < regex.length; i++) {
+                if((new RegExp (regex[i])).test(password)){
+                    passed++;
+                }
+            }
+
+            //Validation for Length of Password
+            if(passed > 2 && password.length > 8){
+                passed++;
+            }
+            return passed
+    }
+    </script>
+</head>
+<body>
+    {{>navbar}}
+    <div class="container">
+        {{!-- <div class="navbar"></div> --}}
+        <div class="card">
+            <div class="title">
+                <h1>Signup</h1>
+            </div>
+            <div class="form">
+                <form action="/signup" method="post" onsubmit="return validate()">
+                <label for="">Name:</label><span id="fullname"></span>
+                <br>
+                <input type="text" name="fullname" id="FullName" placeholder="Full Name">
+                <br>
+                <label for="">I am an :</label>
+                <br>
+                <select name="role" id="">
+                    <option value="Applicant">Applicant</option>
+                    <option value="Employer">Employer</option>
+                </select>
+                <br>
+                <label for="">Email:</label><span id="email"></span>
+                <br>
+                <input type="text" name="email" id="Email" placeholder="Email">
+                <br>
+                <label for="">Password:</label><span id="password"></span>
+                <br>
+                <input type="password" name="password" id="Password" placeholder="Password">
+                <br>
+                <label for="">Confirm Password:</label><span id="cPassword"></span>
+                <br>
+                <input type="password" name="cPassword" id="CPassword" placeholder="Re-enter Password">
+                <br>
+                <br>
+                <input id="btn" type="submit" value="Signup">
+            </form>
+            </div>
+            <div class="footer">
+                <span>Already has an account? <a href="/login">login</a> </span>
+                {{#if error}}
+                <div class="msg">{{error}}</div>
+                {{/if}}
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="/scripts/index.js"></script>
+</body>
+</html>

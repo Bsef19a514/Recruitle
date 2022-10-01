@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/homeNavbar.css">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5966116e87.js" crossorigin="anonymous"></script>
+    <title>My jobs</title>
+</head>
+
+<body>
+    
+    {{#ifCond user.role "Employer"}}
+         {{>employerNavbar}}
+    {{/ifCond}}
+    
+
+    <div class="container">
+        {{#each result}}
+            <div class="card">
+                <div class="header">
+                    <p class="employer"><i class="fa-solid fa-user"></i><span class="name">{{this.employerName}}</span></p>   
+                    <p class="company">{{this.company}}</p>
+                </div>
+                <div class="body">
+                    <p class="job-title">{{this.jobTitle}}</p>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> {{this.location}}</p>
+                    <p class="positions">Positions: {{this.positions}}</p>
+                    <p class="salary">Salary: {{this.salary}}</p>
+                    <p class="description">{{this.description}}</p>
+                    <a class="button" href="/jobs/{{this._id}}/applications">View Applications</a>
+                </div>
+                <div class="footer">
+                    <span class="date">{{this.createdAt}}</span>
+                </div>
+            </div>
+        {{/each}}
+
+   </div>
+
+
+    <script src="/scripts/index.js"></script>
+</body>
+</html>

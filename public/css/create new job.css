@@ -1,0 +1,124 @@
+/* signup page */
+body{
+    padding: 0px;
+    margin: 0px;
+    margin: 0%;
+    font-family: sans-serif;
+}
+.container{
+    height: calc(100vh-200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card{
+    width: 400px;
+    height: 85%;
+    border-radius: 10px;
+    box-shadow: 5px 10px 20px grey;
+    position: fixed;
+    top: 80px;
+}
+.backward{
+    z-index: -1;
+}
+
+.form{
+    /* border: 1px solid blue; */
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    
+}
+
+.form input{
+    width: 95%;
+    height: 30px;
+    border: 1px solid black ;
+    border-radius: 5px;
+    box-shadow: 2px 1px 5px gray;
+    font-size: 15px;
+    padding-left: 10px;
+}
+.form input,textarea:focus{
+    outline-color:rgb(82, 169, 250);
+}
+#description{
+    font-family: sans-serif;
+}
+.error{
+    display: block;
+    height: 20px;
+    padding-top: 15px;
+    color: brown; 
+}
+.textbox{
+    width: 95%;
+    height: 120px;
+    border: 1px solid black ;
+    border-radius: 5px;
+    box-shadow: 2px 1px 5px gray;
+    font-size: 15px;
+    padding-left: 10px;
+    resize: none;
+}
+
+#btn{
+    cursor: pointer;
+    color: white;
+    background-color: black;
+    width: 100px;
+    height: 35px;
+    outline: none;
+    box-sizing:content-box;
+    text-align: center;
+    font-size: 17px;
+    margin-top: 10px;
+}
+.form div{
+    text-align: center;
+}
+
+#btn:hover{
+    color: black;
+    background-color: white;
+}
+#btn:active{
+    transform: scale(1.025);
+}
+
+.footer{
+    width: 80%;
+    margin-left: 11%;
+    position: relative;
+    bottom: -2%;
+}
+.msg{
+    border: 1px solid red;
+    margin-top: 20px;
+    text-align: center;
+    /* border: 1px solid rgb(201, 34, 34); */
+    background-color: rgb(253, 128, 128);
+    border-radius: 5px;
+    color:darkred;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding: 5px ;
+   
+}
+/* -------media queries for signup page */
+@media screen and ( max-width:500px){
+    .container{
+        /* border: 1px solid red; */
+        align-content: flex-start;
+        align-items:flex-start;
+    }
+    .card{
+        /* width: calc(window.innerWidth-20px); */
+        top: 100px;
+        width: 80vw;
+        height: 500px;
+    }
+}
