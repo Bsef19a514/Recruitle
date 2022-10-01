@@ -45,9 +45,10 @@ router.post("/signup",async(req,res)=>{
             })
             const result3=await token.save()
             const url = `${process.env.BASE_URL}users/${result2._id}/verify/${result3.token}`
-            // console.log(url);
+            console.log(url);
             const send=await sendEmail(email, "Verify your Account", url)
-                res.redirect("/verify?status=true")   
+            console.log(send);
+            res.redirect("/verify?status=true")   
        }
     }
 })
