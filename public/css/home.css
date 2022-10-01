@@ -156,7 +156,7 @@ body{
     .card{
         /* width: calc(window.innerWidth-20px); */
         /* top: 120px; */
-        width: 80vw;
+        width: 95vw;
         margin-top: 60px;
         height: fit-content;
     }

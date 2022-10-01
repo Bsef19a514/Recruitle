@@ -12,19 +12,19 @@
         const validate=()=>{
             let flag=true;
             if(document.getElementById("fullname").value==""){
-                document.getElementById("nameError").innerHTML="Please enter your name"
+                document.getElementById("nameError").innerHTML="Enter your name"
                 flag=false
             }else{
                 document.getElementById("nameError").innerHTML=""   
             }
             if(document.getElementById("company").value==""){
-                document.getElementById("companyError").innerHTML="Please enter your company name"
+                document.getElementById("companyError").innerHTML="Enter your company name"
                 flag=false
             }else{
                 document.getElementById("companyError").innerHTML=""   
             }
             if(document.getElementById("email").value==""){
-                document.getElementById("emailError").innerHTML="Please enter your email"
+                document.getElementById("emailError").innerHTML="Enter your email"
                 flag=false
             }else if (document.getElementById("email").value != "") {
 			    var g = document.getElementById("email").value;

@@ -405,7 +405,7 @@ router.get("/apply/:jobId",authentication.userAuthentication,async(req,res)=>{
             console.log(ex);
         }
     }else{
-        res.redirect("/userProfile?error=Please add your resume first")
+        res.redirect("/userProfile?error=Add your resume first")
     }
 })
 
