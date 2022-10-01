@@ -83,10 +83,10 @@ body{
     margin-right: 3px;
     text-transform: none;
     text-decoration: none;
-    color: skyblue;
+    color: black;
 }
-.resume{
-    color: skyblue;
+.email:hover{
+    color:darkblue;
 }
 .job-title{
     color: black;
