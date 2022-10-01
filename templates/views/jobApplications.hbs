@@ -18,9 +18,12 @@
      {{>employerNavbar}}
     <div class="container">
           <div class="header">
-            <p class="location"><i class="fa-solid fa-location-dot"></i> {{this.location}}</p>
+               <div>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> {{this.location}}</p>
+                    <p class="positions">Positions: {{this.positions}}</p>
+               </div>
             <p class="job-title">{{this.jobTitle}}</p>
-            <p class="positions">Positions: {{this.positions}}</p>
+            
           </div>
           <div class="body">
                <div class="heading">

@@ -34,9 +34,13 @@ body{
     margin-left: auto;
     margin-right: auto;
     color: rgb(124, 123, 123);
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    place-items: stretch;
     padding: 20px 10px;
+}
+.positions{
+    padding-top: 5px;
 }
 .body{
     border-top: 1px solid rgb(124, 123, 123);
@@ -115,6 +119,12 @@ body{
     .container{
         align-content: flex-start;
         align-items:flex-start;
+    }
+    .header{
+        
+        grid-template-columns: 1.5fr 4fr;
+        padding-left: 0%;
+        padding-right: 0%;
     }
     
 }
