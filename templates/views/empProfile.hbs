@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/employerNavbar.css">
+    <link rel="stylesheet" href="css/employerProfile.css">
+    <title>Profile</title>
+
+    <script>
+        const validate=()=>{
+            let flag=true;
+            if(document.getElementById("fullname").value==""){
+                document.getElementById("nameError").innerHTML="Please enter your name"
+                flag=false
+            }else{
+                document.getElementById("nameError").innerHTML=""   
+            }
+            if(document.getElementById("company").value==""){
+                document.getElementById("companyError").innerHTML="Please enter your company name"
+                flag=false
+            }else{
+                document.getElementById("companyError").innerHTML=""   
+            }
+            if(document.getElementById("email").value==""){
+                document.getElementById("emailError").innerHTML="Please enter your email"
+                flag=false
+            }else if (document.getElementById("email").value != "") {
+			    var g = document.getElementById("email").value;
+			    var at = g.indexOf("@");
+			    dot = g.lastIndexOf(".");
+			    if (at <=0 || dot <= 0 || dot <= at + 1 || dot == g.length - 1) {
+				    document.getElementById("emailError").innerHTML = "*Invalid email address";
+				    flag = false;
+	    		}
+		    	else {
+			    	document.getElementById("emailError").innerHTML= "";
+			    }
+            }
+            return flag
+        }
+    </script>
+</head>
+
+<body>
+     {{>employerNavbar}}
+    <div class="container">
+        <div class="card">
+            <div class="form">
+                <form action="/profile" method="post" onsubmit="return validate()">
+                    <label for="">Name:</label><span class="span" id="nameError"></span>
+                    <br>
+                    <input type="text" id="fullname" name="fullname" placeholder="Full name *" value="{{fullname}}">
+                    <br>
+                    <label for="">Company:</label><span class="span" id="companyError"></span>
+                    <br>
+                    <input type="text"id="company" name="company" placeholder="Company name *" value="{{company}}" >
+                    <br>
+                    <label for="">Email:</label><span class="span" id="emailError"></span>
+                    <br>
+                    <input type="text" id="email" name="email" placeholder="Email *" value="{{email}}" >
+                    <br>
+                    <div>
+                        <a class="button" href="/profile/changePassword">Change Password</a>
+                        <input id="btn" type="submit" value="Save">
+                    </div>
+                </form>
+            </div>
+
+            <div class="footer">
+                {{#if error}}
+                <div class="msg">{{error}}</div>
+                {{/if}}
+            </div>
+        </div>
+   </div>
+
+    <script src="/scripts/create new job.js"></script>
+</body>
+</html>

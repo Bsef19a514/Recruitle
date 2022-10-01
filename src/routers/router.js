@@ -215,7 +215,7 @@ router.get("/profile",authentication.employerAuthentication,async(req,res)=>{
     const user=req.user
     const error=req.query.error
     user.error=error
-    res.render("employerProfile",user)
+    res.render("empProfile",user)
 
 })
 
