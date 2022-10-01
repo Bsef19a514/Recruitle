@@ -107,7 +107,7 @@ router.post("/login",async(req,res)=>{
                 const authToken=await result.generateAutheticationToken()
                 res.cookie("jwt",authToken,
                 {
-                    expires:new Date(Date.now()+300000), //expires tokes after 5 min
+                    expires:new Date(Date.now()+3000000), //expires tokes after 5 min
                     httpOnly:true
                 })
                 res.redirect("/home")  
