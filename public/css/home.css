@@ -11,10 +11,7 @@ body{
 .navbar{
     z-index: 2;
 }
-.navbar a{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
+
 .container{
     box-sizing: border-box;
     overflow-y: scroll;
