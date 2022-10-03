@@ -1,4 +1,5 @@
 const express=require("express")
+const validator=require("validator")
 const userModel=require("../models/userModel")
 const tokenModel=require("../models/tokenModel")
 const jobModel=require("../models/jobModel")
@@ -46,9 +47,13 @@ router.post("/signup",async(req,res)=>{
             const result3=await token.save()
             const url = `${process.env.BASE_URL}users/${result2._id}/verify/${result3.token}`
             console.log(url);
-            const send=await sendEmail(email, "Verify your Account", url)
-            console.log(send);
-            res.redirect("/verify?status=true")   
+            if (!validator.isEmail(value)) {
+                res.redirect("/signup?error=Invalid email address")
+            }else{
+                const send=await sendEmail(email, "Verify your Account", url)
+                console.log(send);
+                res.redirect("/verify?status=true") 
+            }
        }
     }
 })
